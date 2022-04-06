@@ -3,7 +3,6 @@ var minuteHand = document.getElementById("minuteHand");
 var hourHand = document.getElementById("hourHand");
 
 var secondAngle, minuteAngle, hourAngle;
-var countSec = 0, countMin = 0;
 var currentHour, currentMinute, currentSecond;
 
 var currenttime = new Date();
@@ -22,16 +21,18 @@ minuteHand.style.transform = "rotate(" + minuteAngle + "deg)";
 secondHand.style.transform = "rotate(" + secondAngle + "deg)";
 hourHand.style.transform = "rotate(" + hourAngle + "deg)";
 
+var countSec = currenttime.getSeconds(), countMin = currenttime.getMinutes();
+
 function clock()
 {
     secondAngle += 6;
     secondHand.style.transform = "rotate(" + secondAngle + "deg)";
-    if(secondAngle % 60 == 0)
+    if(countSec == 60)
     {
         countSec = 0;
         minuteAngle += 6;
         minuteHand.style.transform = "rotate(" + minuteAngle + "deg)";
-        if(minuteAngle % 60 == 0)
+        if(countMin == 60)
         {
             countMin = 0;
             hourAngle += 6;
