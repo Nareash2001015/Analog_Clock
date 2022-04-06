@@ -26,12 +26,12 @@ function clock()
 {
     secondAngle += 6;
     secondHand.style.transform = "rotate(" + secondAngle + "deg)";
-    if(countSec == 60)
+    if(secondAngle % 60 == 0)
     {
         countSec = 0;
         minuteAngle += 6;
         minuteHand.style.transform = "rotate(" + minuteAngle + "deg)";
-        if(countMin == 60)
+        if(minuteAngle % 60 == 0)
         {
             countMin = 0;
             hourAngle += 6;
